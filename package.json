@@ -98,7 +98,7 @@
     ],
     "publish": {
       "provider": "github",
-      "owner": "electron-react-boilerplate",
+      "owner": "leonyh77",
       "repo": "electron-react-boilerplate",
       "private": false
     }
