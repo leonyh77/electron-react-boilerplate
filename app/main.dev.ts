@@ -24,7 +24,7 @@ export default class AppUpdater {
   }
 }
 
-let mainWindow: BrowserWindow | null = null;
+let mainWindow: any = null;
 
 if (process.env.NODE_ENV === 'production') {
   const sourceMapSupport = require('source-map-support');
@@ -112,9 +112,37 @@ const createWindow = async () => {
   new AppUpdater();
 };
 
+function sendStatusToWindow(text: any) {
+  log.info(text);
+  mainWindow.webContents.send('message', text);
+}
+
 /**
  * Add event listeners...
  */
+
+autoUpdater.on('checking-for-update', () => {
+  sendStatusToWindow('Checking for update...');
+});
+
+autoUpdater.on('update-available', (info) => {
+  sendStatusToWindow('Update available.');
+});
+autoUpdater.on('update-not-available', (info) => {
+  sendStatusToWindow('Update not available.');
+});
+autoUpdater.on('error', (err) => {
+  sendStatusToWindow(`Error in auto-updater. ${err}`);
+});
+autoUpdater.on('download-progress', (progressObj) => {
+  let logMessage = `ownload speed: ${progressObj.bytesPerSecond}`;
+  logMessage = `${logMessage} - Downloaded ${progressObj.percent}%`;
+  logMessage = `${logMessage} (${progressObj.transferred}/${progressObj.total})`;
+  sendStatusToWindow(logMessage);
+});
+autoUpdater.on('update-downloaded', (info) => {
+  sendStatusToWindow('Update downloaded');
+});
 
 app.on('window-all-closed', () => {
   // Respect the OSX convention of having the application in memory even
