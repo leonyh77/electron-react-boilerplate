@@ -98,14 +98,14 @@
     ],
     "publish": {
       "provider": "github",
-      "owner": "leonyh7",
+      "owner": "leonyh77",
       "repo": "electron-react-boilerplate",
       "private": false
     }
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/leonyh7/electron-react-boilerplate.git"
+    "url": "git+https://github.com/leonyh77/electron-react-boilerplate.git"
   },
   "author": {
     "name": "Electron React Boilerplate Maintainers",
@@ -131,7 +131,7 @@
   ],
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/leonyh7/electron-react-boilerplate.git/issues"
+    "url": "https://github.com/leonyh77/electron-react-boilerplate.git/issues"
   },
   "keywords": [
     "electron",
@@ -145,7 +145,7 @@
     "hot",
     "reload"
   ],
-  "homepage": "https://github.com/leonyh7/electron-react-boilerplate.git#readme",
+  "homepage": "https://github.com/leonyh77/electron-react-boilerplate.git#readme",
   "jest": {
     "testURL": "http://localhost/",
     "moduleNameMapper": {
